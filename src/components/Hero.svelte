@@ -41,9 +41,17 @@
 
 	$: overlayTranslation = translateRange(
 		scrollY,
-		0,
+		780,
 		stretchParentOffsetHeight / 1.4,
-		180,
+		0,
+		-104
+	);
+
+	$: overlayTranslation2 = translateRange(
+		scrollY,
+		780,
+		stretchParentOffsetHeight / 1.4,
+		104,
 		0
 	);
 
@@ -87,7 +95,7 @@
 		bottom: 0;
 		.slide,
 		.slide img {
-			@apply absolute inset-0;
+			@apply absolute inset-0 w-full;
 		}
 	}
 </style>
@@ -125,8 +133,12 @@
 						alt="MacBook Pro"
 					/>
 					<div class="slideshow">
-						<div class="slide">
+						<div 
+							class="slide"
+						>
 							<img
+								style="transform: translate3d({overlayTranslation}%,
+							0, 0);"	
 								src="/img/screen_darkmode__slg2qk1ijleq_large.jpg"
 								alt="macOS Catalina"
 							/>
@@ -138,7 +150,7 @@
 						</div>
 						<div
 							class="slide"
-							style="transform: translate3d({overlayTranslation}%,
+							style="transform: translate3d({overlayTranslation2}%,
 							0, 0);"
 						>
 							<img
@@ -191,6 +203,6 @@
 
 	<section
 		class="sticky top-0 z-0"
-		style="height: {stretchParentOffsetHeight / 2}px"
+		style="height: {stretchParentOffsetHeight / 1.4}px"
 	></section>
 </div>
