@@ -41,7 +41,7 @@
 
 	$: overlayTranslation = translateRange(
 		scrollY,
-		780,
+		stretchParentOffsetHeight / 2,
 		stretchParentOffsetHeight / 1.4,
 		0,
 		-104
@@ -49,7 +49,7 @@
 
 	$: overlayTranslation2 = translateRange(
 		scrollY,
-		780,
+		stretchParentOffsetHeight / 2,
 		stretchParentOffsetHeight / 1.4,
 		104,
 		0
