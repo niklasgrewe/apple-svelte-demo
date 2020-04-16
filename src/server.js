@@ -1,21 +1,17 @@
-import sirv from "sirv";
-import express from "express";
-import compression from "compression";
-import * as sapper from "@sapper/server";
-
-import "./assets/global.css";
+import sirv from 'sirv';
+import express from 'express';
+import compression from 'compression';
+import * as sapper from '@sapper/server';
 
 const { PORT, NODE_ENV } = process.env;
-const dev = NODE_ENV === "development";
+const dev = NODE_ENV === 'development';
 
-const expressServer = express().use(
-	compression({ threshold: 0 }),
-	sirv("static", { dev }),
-	sapper.middleware()
-);
-
-expressServer.listen(PORT, (err) => {
-    if (err && dev) console.log("error", err);
-});
-
-export { expressServer };
+express() // You can also use Express
+	.use(
+		compression({ threshold: 0 }),
+		sirv('static', { dev }),
+		sapper.middleware()
+	)
+	.listen(PORT, err => {
+		if (err) console.log('error', err);
+	});

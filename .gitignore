@@ -70,3 +70,4 @@ node_modules/
 /cypress/screenshots/
 /__sapper__/
 package-lock.json
+.now
