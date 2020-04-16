@@ -14,10 +14,8 @@ const expressServer = express().use(
 	sapper.middleware()
 );
 
-if (dev) {
-	expressServer.listen(PORT, (err) => {
-		if (err) console.log("error", err);
-	});
-}
+expressServer.listen(PORT, (err) => {
+    if (err && dev) console.log("error", err);
+});
 
 export { expressServer };

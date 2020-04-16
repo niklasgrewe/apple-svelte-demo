@@ -86,7 +86,6 @@
 		background: #fafafa;
 		margin-top: -96px;
 	}
-
 	.slideshow {
 		@apply absolute overflow-hidden;
 		top: 6%;
@@ -145,7 +144,7 @@
 							<img
 								src="/img/desktop__on4gxlz1xv6u_large.jpg"
 								alt="macOS Catalina"
-								style="opacity: {overlayOpacity1};"
+								style="opacity: {overlayOpacity1};transform: translate3d(0%,0,0);"
 							/>
 						</div>
 						<div
@@ -191,7 +190,7 @@
 					macOS
 				</p>
 				<h1
-					class="font-bold leading-none text-10xl text-white
+					class="font-bold leading-none md:text-10xl text-8xl text-white
 					tracking-tight"
 					in:fly="{{ delay: 500, duration: 2000, y: 50 }}"
 				>
