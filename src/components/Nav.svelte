@@ -36,7 +36,7 @@
 
 <svelte:window bind:scrollY />
 
-<section class="{scrollY === 0 ? 'sticky' : 'relative'} top-0 z-20 overflow-x-hidden">
+<section class="{scrollY === 0 ? 'sticky' : 'relative'} top-0 z-20">
 	<div class="container max-w-screen-lg mx-auto px-2">
 		<ul>
 			<li class="logo">
