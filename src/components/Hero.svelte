@@ -60,18 +60,18 @@
 
 		setTimeout(() => {
 			const viewportOffset = stretchElement.getBoundingClientRect();
+			const pixelRatio = window.devicePixelRatio;
 
-			const offsetWidth =
-				stretchElement.offsetWidth * window.devicePixelRatio;
+			const offsetWidth = stretchElement.offsetWidth * pixelRatio;
 
 			const offsetHeight =
-				stretchElement.offsetHeight * window.devicePixelRatio -
-				160 * window.devicePixelRatio;
+				stretchElement.offsetHeight * pixelRatio - 160 * pixelRatio;
 
 			const widthScaleFactor = (viewportOffset.left * 2) / offsetWidth;
 
 			const heightScaleFactor =
-				(viewportOffset.top * 2 + offsetHeight) / offsetHeight;
+				(viewportOffset.top * pixelRatio * 2 + offsetHeight) /
+				offsetHeight;
 
 			originalScaleFactor =
 				widthScaleFactor >= heightScaleFactor
@@ -86,6 +86,7 @@
 		background: #fafafa;
 		margin-top: -96px;
 	}
+
 	.slideshow {
 		@apply absolute overflow-hidden;
 		top: 6%;
@@ -94,7 +95,8 @@
 		bottom: 0;
 		.slide,
 		.slide img {
-			@apply absolute inset-0 w-full;
+			@apply absolute inset-0;
+			width: 100%;
 		}
 	}
 </style>
@@ -132,19 +134,17 @@
 						alt="MacBook Pro"
 					/>
 					<div class="slideshow">
-						<div 
-							class="slide"
-						>
+						<div class="slide">
 							<img
 								style="transform: translate3d({overlayTranslation}%,
-							0, 0);"	
+								0, 0);"
 								src="/img/screen_darkmode__slg2qk1ijleq_large.jpg"
 								alt="macOS Catalina"
 							/>
 							<img
 								src="/img/desktop__on4gxlz1xv6u_large.jpg"
 								alt="macOS Catalina"
-								style="opacity: {overlayOpacity1};transform: translate3d(0%,0,0);"
+								style="opacity: {overlayOpacity1};"
 							/>
 						</div>
 						<div
@@ -160,7 +160,7 @@
 					</div>
 				</figure>
 				<div
-					class="sticky top-0 w-full"
+					class="sticky top-0 w-full z-0"
 					style="height: {stretchElementOffsetHeight}px"
 				></div>
 			</div>
@@ -190,7 +190,7 @@
 					macOS
 				</p>
 				<h1
-					class="font-bold leading-none md:text-10xl text-8xl text-white
+					class="font-bold leading-none text-10xl text-white
 					tracking-tight"
 					in:fly="{{ delay: 500, duration: 2000, y: 50 }}"
 				>
@@ -202,6 +202,6 @@
 
 	<section
 		class="sticky top-0 z-0"
-		style="height: {stretchParentOffsetHeight / 1.4}px"
+		style="height: {stretchParentOffsetHeight / 2}px"
 	></section>
 </div>

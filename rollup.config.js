@@ -8,7 +8,6 @@ import config from "sapper/config/rollup.js";
 import pkg from "./package.json";
 
 import getPreprocessor from "svelte-preprocess";
-import path from "path";
 import postcss from "rollup-plugin-postcss";
 
 const mode = process.env.NODE_ENV;
@@ -118,7 +117,7 @@ export default {
 			commonjs(),
 			postcss({
 				plugins: postcssPlugins(!dev),
-				extract: path.resolve(__dirname, "./static/global.css"),
+				extract: "static/global.css",
 			}),
 		],
 		external: Object.keys(pkg.dependencies).concat(

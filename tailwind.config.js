@@ -17,7 +17,7 @@ let defaultFontFamily = [
 module.exports = {
 	theme: {
 		extend: {
-			fontSize: { "4xl": "2.5rem", "7xl": "5rem", "8xl": "7rem", "10xl": "12rem" },
+			fontSize: { "4xl": "2.5rem", "7xl": "5rem", "10xl": "12rem" },
 		},
 		fontFamily: {
 			sans: ["SFProDisplay", ...defaultFontFamily],
