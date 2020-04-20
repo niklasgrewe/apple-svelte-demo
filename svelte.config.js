@@ -2,9 +2,13 @@ const sveltePreprocess = require("svelte-preprocess");
 
 module.exports = {
 	preprocess: sveltePreprocess({
-		postcss: {
-			plugins: [require("postcss-nested"), require("autoprefixer")],
+		postcss: true,
+		transformers: {
+			postcss: {
+				config: {
+					path: "./postcss.config.js",
+				},
+			},
 		},
 	}),
-	// ...other svelte options
 };
