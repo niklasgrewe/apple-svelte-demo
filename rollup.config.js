@@ -8,7 +8,6 @@ import config from "sapper/config/rollup.js";
 import pkg from "./package.json";
 
 import getPreprocessor from "svelte-preprocess";
-import postcss from "rollup-plugin-postcss";
 
 const mode = process.env.NODE_ENV;
 const dev = mode === "development";
@@ -19,27 +18,13 @@ const onwarn = (warning, onwarn) =>
 		/[/\\]@sapper[/\\]/.test(warning.message)) ||
 	onwarn(warning);
 
-const postcssPlugins = (purgecss = false) => {
-	return [
-		require("postcss-import")(),
-		require("postcss-url")(),
-		require("postcss-nested"),
-		require("tailwindcss")("./tailwind.config.js"),
-		require("autoprefixer")(),
-		purgecss &&
-			require("@fullhuman/postcss-purgecss")({
-				content: ["./src/**/*.svelte", "./src/**/*.html"],
-				defaultExtractor: (content) =>
-					content.match(/[A-Za-z0-9-_:/]+/g) || [],
-			}),
-		!dev && require("cssnano")({ preset: "default" }),
-	].filter(Boolean);
-};
-
 const preprocess = getPreprocessor({
+	postcss: true,
 	transformers: {
 		postcss: {
-			plugins: postcssPlugins(),
+			config: {
+				path: "./postcss.config.js",
+			},
 		},
 	},
 });
@@ -56,7 +41,6 @@ export default {
 			svelte({
 				dev,
 				hydratable: true,
-				emitCss: true,
 				preprocess,
 			}),
 			resolve({
@@ -115,10 +99,6 @@ export default {
 				dedupe: ["svelte"],
 			}),
 			commonjs(),
-			postcss({
-				plugins: postcssPlugins(!dev),
-				extract: "static/global.css",
-			}),
 		],
 		external: Object.keys(pkg.dependencies).concat(
 			require("module").builtinModules ||
