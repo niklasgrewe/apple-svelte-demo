@@ -29,24 +29,4 @@ $ npm i
 $ npm run dev
 ```
 
-4. Build the App
 
-```shell
-$ npm run build
-```
-
-> in this example we use `sapper export` for static deployment provided by ZEIT NOW. When you want to use SSR (server-side-rendering) you need to change this line
-
-```json
-"scripts": {
-    "build": "sapper export",
-},
-```
-
-to
-
-```json
-"scripts": {
-    "build": "sapper build",
-},
-```

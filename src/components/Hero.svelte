@@ -144,7 +144,7 @@
 							<img
 								src="/img/desktop__on4gxlz1xv6u_large.jpg"
 								alt="macOS Catalina"
-								style="opacity: {overlayOpacity1};"
+								style="opacity: {overlayOpacity1};transform: translate3d(0%, 0, 0)"
 							/>
 						</div>
 						<div
@@ -202,6 +202,6 @@
 
 	<section
 		class="sticky top-0 z-0"
-		style="height: {stretchParentOffsetHeight / 2}px"
+		style="height: {stretchParentOffsetHeight / 1.4}px"
 	></section>
 </div>
