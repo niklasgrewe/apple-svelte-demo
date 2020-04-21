@@ -7,26 +7,21 @@ The purpose of this project is to show how easy it is to create complex animatio
 
 > A Live Demo is avaible under: https://apple-svelte-demo.now.sh/
 
-## How to use this Project
+## Get started
 
-1. Clone this Repo to your computer
-
+Clone this Repo with [degit](https://github.com/rich-harris/degit) 
 ```shell
-$ git clone https://github.com/niklasgrewe/apple-svelte-demo.git
+$ npx degit "niklasgrewe/apple-svelte-demo" my-app
 ```
-
-2. Install Dependencies
-
-```shell
-$ npm i
-```
-
 > make sure you have already installed nodejs and npm
-
-3. Run the Project
-
+...then install dependencies and start the dev server...
 ```shell
+$ cd my-app
+$ npm install
 $ npm run dev
 ```
-
-
+...and navigate to localhost:3000. To build and run in production mode:
+```shell
+$ npm run build
+$ npm run start
+```
