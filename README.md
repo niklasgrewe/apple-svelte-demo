@@ -14,6 +14,7 @@ Clone this Repo with [degit](https://github.com/rich-harris/degit)
 $ npx degit "niklasgrewe/apple-svelte-demo" my-app
 ```
 > make sure you have already installed nodejs and npm
+
 ...then install dependencies and start the dev server...
 ```shell
 $ cd my-app
